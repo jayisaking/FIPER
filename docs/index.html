@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>FIPER: Generalizable Factorized Fields for Joint Image Compression and Super-Resolution</title>
+    <title>FIPER: Factorized Features for Robust Image Super-Resolution and Compression</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,17 +16,18 @@
     <meta property="og:image:height" content="576">
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jayisaking.github.io/FIPER/" />
-    <meta property="og:title" content="FIPER: Generalizable Factorized Fields for Joint Image Compression and Super-Resolution" />
+    <meta property="og:title" content="FIPER: Factorized Features for Robust Image Super-Resolution and Compression" />
     <meta property="og:description"
         content="In this work, we propose a unified representation for Super-Resolution (SR) and Image Compression, termed Factorized Fields, motivated by the shared principles between these two tasks. Both SISR and Image Compression require recovering and preserving fine image details—whether by enhancing resolution or reconstructing compressed data. Unlike previous methods that mainly focus on network architecture, our proposed approach utilizes a basis-coefficient decomposition to explicitly capture multi-scale visual features and structural components in images, addressing the core challenges of both tasks. We first derive our SR model, which includes a Coefficient Backbone and Basis Swin Transformer for generalizable Factorized Fields. Then, to further unify these two tasks, we leverage the strong information-recovery capabilities of the trained SR modules as priors in the compression pipeline, improving both compression efficiency and detail reconstruction. Additionally, we introduce a merged-basis compression branch that consolidates shared structures, further optimizing the compression process. Extensive experiments show that our unified representation delivers state-of-the-art performance, achieving an average relative improvement of 204.4% in PSNR over the baseline in Super-Resolution (SR) and 9.35% BD-rate reduction in Image Compression compared to the previous SOTA." />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FIPER: Generalizable Factorized Fields for Joint Image Compression and Super-Resolution" />
+    <meta name="twitter:title" content="FIPER: Factorized Features for Robust Image Super-Resolution and Compression" />
     <meta name="twitter:description"
         content="In this work, we propose a unified representation for Super-Resolution (SR) and Image Compression, termed Factorized Fields, motivated by the shared principles between these two tasks. Both SISR and Image Compression require recovering and preserving fine image details—whether by enhancing resolution or reconstructing compressed data. Unlike previous methods that mainly focus on network architecture, our proposed approach utilizes a basis-coefficient decomposition to explicitly capture multi-scale visual features and structural components in images, addressing the core challenges of both tasks. We first derive our SR model, which includes a Coefficient Backbone and Basis Swin Transformer for generalizable Factorized Fields. Then, to further unify these two tasks, we leverage the strong information-recovery capabilities of the trained SR modules as priors in the compression pipeline, improving both compression efficiency and detail reconstruction. Additionally, we introduce a merged-basis compression branch that consolidates shared structures, further optimizing the compression process. Extensive experiments show that our unified representation delivers state-of-the-art performance, achieving an average relative improvement of 204.4% in PSNR over the baseline in Super-Resolution (SR) and 9.35% BD-rate reduction in Image Compression compared to the previous SOTA." />
     <meta name="twitter:image" content="https://jayisaking.github.io/FIPER/img/SRConceptual.jpg" />
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -42,7 +43,7 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-8ZERS5BVPS');
-    </script>   
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
@@ -73,23 +74,28 @@
             <!-- <div class="container" id="main"> -->
             <div class="row">
                 <h2 class="col-md-12 text-center">
-                    <b>FIPER:</b> Generalizable Factorized Fields for Joint Image Compression and Super-Resolution</br>
+                    <b>FIPER:</b> Factorized Features for Robust Image Super-Resolution and Compression</br>
                 </h2>
             </div>
             <div class="row text-center">
                 <div class="col-md-3">
                 </div>
                 <div class="container-fluid text-center">
-                    <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;" >
+                    <ul class="list-inline" style="white-space: nowrap; margin:0px 0px 0px 0px;">
                         <li><a style="font-size: calc(min(3vw, 15px))" href="">Yang-Che Sun¹</a></li>
                         <li><a style="font-size: calc(min(3vw, 15px))" href="">Cheng Yu Yeo¹</a></li>
-                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://www.cs.jhu.edu/~schu23/">Ernie Chu²</a></li>
-                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://homepage.citi.sinica.edu.tw/pages/pullpull/index_en.html">Jun-Cheng Chen³</a></li>
-                        <li><a style="font-size: calc(min(3vw, 15px))"  href="https://yulunalexliu.github.io/">Yu-Lun Liu¹</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://www.cs.jhu.edu/~schu23/">Ernie
+                                Chu²</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))"
+                                href="https://homepage.citi.sinica.edu.tw/pages/pullpull/index_en.html">Jun-Cheng
+                                Chen³</a></li>
+                        <li><a style="font-size: calc(min(3vw, 15px))" href="https://yulunalexliu.github.io/">Yu-Lun
+                                Liu¹</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 text-center" style="font-size: calc(min(3vw, 15px))">
-            ¹National Yang Ming Chiao Tung University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;²Johns Hopkins University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;³Academia Sinica
+                    ¹National Yang Ming Chiao Tung University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;²Johns Hopkins
+                    University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;³Academia Sinica
                 </div>
             </div>
             <div class="row text-center">
@@ -117,52 +123,83 @@
                 <div class="col-md-8 offset-md-2">
                     <h3> Abstract </h3>
                     <p class="text-justify" style="text-align: left;">
-    In this work, we propose a unified representation for Super-Resolution (SR) and Image Compression, termed <b>Factorized Fields</b>, motivated by the shared principles between these two tasks. Both SISR and Image Compression require recovering and preserving fine image details—whether by enhancing resolution or reconstructing compressed data. Unlike previous methods that mainly focus on network architecture, our proposed approach utilizes a basis-coefficient decomposition to explicitly capture multi-scale visual features and structural components in images, addressing the core challenges of both tasks. We first derive our SR model, which includes a Coefficient Backbone and Basis Swin Transformer for generalizable Factorized Fields. Then, to further unify these two tasks, we leverage the strong information-recovery capabilities of the trained SR modules as priors in the compression pipeline, improving both compression efficiency and detail reconstruction. Additionally, we introduce a merged-basis compression branch that consolidates shared structures, further optimizing the compression process. Extensive experiments show that our unified representation delivers state-of-the-art performance, achieving an average relative improvement of 204.4% in PSNR over the baseline in Super-Resolution (SR) and 9.35% BD-rate reduction in Image Compression compared to the previous SOTA.
+                        In this work, we propose using a unified representation, termed <b>Factorized Features</b>, for low-level vision tasks, where we test on <b>Single Image Super-Resolution (SISR)</b> and <b>Image Compression</b>. Motivated by the shared principles between these tasks, they require recovering and preserving fine image details, whether by enhancing resolution for SISR or reconstructing compressed data for Image Compression. Unlike previous methods that mainly focus on network architecture, our proposed approach utilizes a basis-coefficient decomposition as well as an explicit formulation of frequencies to capture structural components and multi-scale visual features in images, which addresses the core challenges of both tasks. We replace the representation of prior models from simple feature maps with Factorized Features to validate the potential for broad generalizability. In addition, we further optimize the compression pipeline by leveraging the mergeable-basis property of our Factorized Features, which consolidates shared structures on multi-frame compression. Extensive experiments show that our unified representation delivers state-of-the-art performance, achieving an average relative improvement of 204.4% in PSNR over the baseline in Super-Resolution (SR) and 9.35% BD-rate reduction in Image Compression compared to the previous SOTA.
                     </p>
                 </div>
             </div><br>
 
             <div class="row">
-                <div class="col-md-8 offset-md-2 rounded" style="text-align: center; padding-bottom: 0px; padding-top: 5px; background-color: #d0d5ec;">
-                    <h6 style="text-align: center; color:rgb(0, 0, 0)"><strong>TL;DR</strong>: A new unified representation for both super-resolution and image compression.</h6>
+                <div class="col-md-8 offset-md-2 rounded"
+                    style="text-align: center; padding-bottom: 0px; padding-top: 5px; background-color: #d0d5ec;">
+                    <h6 style="text-align: center; color:rgb(0, 0, 0)"><strong>TL;DR</strong>: An unified image representation to reconstruct the fine details.</h6>
                 </div>
             </div><br>
 
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <h3> The correlation between coordinate transformation and downsampling </h3>
-                    <image width=60% src="img/pixel_sampling_pptx_v4.jpg"
-                        alt="A diagram explaining the method in broad strokes, like explained in the caption."></image>
+                    <h3> Comparison between decomposition-based, architecture-based, and our Factorized Features representation </h3>
+
+                    <image width=100% src="img/comparison-teaser.png"
+                        alt="A comparison illustrating decomposition-based methods, architecture-driven approaches, and our factorized representation."></image>
 
                     <figcaption class="text-justify margin-5" style="text-align: left;">
-                    (a) The sawtooth transformation example with \(k=2\). (b) The PixelUnShuffle downsample. (c) To explicitly model the information for sampling with a sawtooth, we rearrange the feature map in a dilation-like manner in the downsample layer of the Basis Swin Transformer. This way, the feature sampled would capture the information in the original layout correctly.
-                    </p>
+                        (a) Prior decomposition-based methods use fixed Fourier- or wavelet-like bases to capture periodic structures, but often fail to preserve high-fidelity textures.  
+                        (b) Architecture-oriented approaches enhance model depth or attention mechanisms, yet lack explicit frequency modeling and thus struggle with repetitive patterns.  
+                        (c) Our method introduces learned Factorized Features with generalizable basis–coefficient decomposition, enabling accurate reconstruction of both global structure and local periodic patterns.  
+                        Pixel-importance visualizations (middle row) illustrate that our approach focuses more effectively on structurally meaningful regions.
+                    </figcaption>
                 </div>
-            </div><br>
+            </div>
+
+            <br>
 
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <h3> The overall pipeline of image super-resolution with our Factorized Fields </h3>
-                    <image width=100% src="img/SRConceptual.jpg"
-                        alt="A diagram explaining the method in broad strokes, like explained in the caption."></image>
+                    <h3> The full Factorized Features formulation </h3>
 
-                    <figcaption class="text-justify margin-5" style="text-align: left; margin-top:-20px;">
-                    Given a low-resolution image \(I_{LR}\), we first extract coefficient feature map \(X_\text{coeff}\) with the coefficient backbone, which is then decoded into coefficient and passed through the basis Swin Transformer for basis, separately. Finally, the coefficient and basis are sampled, multiplied, and decoded for final high-resolution output \(I_{HR}\), where \(s\), \(H\), \(W\) denote the scale factor, height, and width respectively.
-                    </p>
-                </div>
-            </div><br>
-
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <h3> The illustration of our joint image-compression and super-resolution framework compared with the traditional compression-only method </h3>
-                    <image width=100% src="img/Compression_SR-ICLR.jpg"
-                        alt="A diagram explaining the method in broad strokes, like explained in the caption."></image>
+                    <image width=100% src="img/factorized-features.png"
+                        alt="Diagram illustrating coordinate transformation and multi-frequency modulation in Factorized Features."></image>
 
                     <figcaption class="text-justify margin-5" style="text-align: left;">
-                    (a) Traditional learning-based compression methods. (b) Our approach surpasses (a) by incorporating our Super-Resolution (SR) Module as information-recovery prior. (c) Expanding on (b) and introducing a multi-image compression strategy that utilizes both our SR Module and a Basis Merging Transformer to capture shared structure.
-                    </p>
+                        This figure visualizes our complete representation defined in Eq. (7) and (8):  
+                        \[
+                            \hat{I}(x) = 
+                            P\!\left(
+                                \text{Concat}_{i=1}^{N}
+                                \text{Concat}_{j=1}^{K}
+                                \left[
+                                    c_{ij}(x)\,\odot\,
+                                    \psi\!\left(\alpha_j \cdot b_i(\gamma_i(x))\right)
+                                \right]
+                            \right).
+                        \]
+                        The sawtooth coordinate transform \(\gamma_i(x)\) enforces explicit periodic sampling, causing each basis \(b_i\) to repeat at controlled spatial intervals.  
+                        Multi-frequency scaling \(\alpha_j\) modulates every basis with both low- and high-frequency responses, while \(\psi\) provides a nonlinear periodic mapping that encourages sharper oscillations.  
+                        By combining spatially varying coefficients \(c_{ij}(x)\) with frequency-modulated and transformed bases, the formulation captures fine textures, repetitive patterns, and multi-scale structures essential for Super-Resolution and Image Compression.
+                    </figcaption>
                 </div>
-            </div><br>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3> Super-Resolution and Image Compression with Factorized Features </h3>
+
+                    <image width=100% src="img/sr-and-ic-arch.png"
+                        alt="Pipeline diagrams of Factorized Features applied to Super-Resolution and Image Compression."></image>
+
+                    <figcaption class="text-justify margin-5" style="text-align: left;">
+                        <b>(a)</b> In Super-Resolution, the low-resolution input is processed by the Coefficient Backbone to extract \(X_{\text{coeff}}\).  
+                        From this shared feature representation, convolution layers generate spatially varying coefficients, while the Basis Swin Transformer produces a multi-scale set of basis maps.  
+                        The final output is reconstructed through the Factorized Features formulation, enabling explicit modeling of high- and low-frequency components.  
+                        <br><br>
+                        <b>(b)</b> For Image Compression, the synthesis transform of a learned compression model is replaced with our SR module.  
+                        This design leverages SR priors and the structured basis–coefficient representation to restore details more effectively after quantization, reducing distortion at comparable bitrates.
+                    </figcaption>
+                </div>
+            </div>
+            <br>
 
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -188,7 +225,10 @@
                 </h4>
 
                 <p class="text-justify" style="text-align: left;">
-                    This research was funded by the National Science and Technology Council, Taiwan, under Grants NSTC 112-2222-E-A49-004-MY2 and 113-2628-E-A49-023-. The authors are grateful to Google, NVIDIA, and MediaTek Inc. for generous donations. Yu-Lun Liu acknowledges the Yushan Young Fellow Program by the MOE in Taiwan.
+                    This research was funded by the National Science and Technology Council, Taiwan, under Grants NSTC
+                    112-2222-E-A49-004-MY2 and 113-2628-E-A49-023-. The authors are grateful to Google, NVIDIA, and
+                    MediaTek Inc. for generous donations. Yu-Lun Liu acknowledges the Yushan Young Fellow Program by the
+                    MOE in Taiwan.
                     <br><br><br>
                 </p>
             </div>
@@ -198,13 +238,15 @@
                         <h4 style="text-align: center">BibTeX </h4>
                     </label>
                     <textarea id="bibtex" class="form-control" readonly>
-@article{sun2024fiper,
-    title={FIPER: Generalizable Factorized Fields for Joint Image Compression and Super-Resolution},
-    author={Yang-Che Sun and Cheng Yu Yeo and Ernie Chu and Jun-Cheng Chen and Yu-Lun Liu},
-    journal={arXiv},
-    year={2024}
+@inproceedings{
+sun2025fiper,
+title={{FIPER}: Factorized Features for Robust Image Super-Resolution and Compression},
+author={Yang-Che Sun and Cheng Yu Yeo and Ernie Chu and Jun-Cheng Chen and Yu-Lun Liu},
+booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+year={2025},
+url={https://openreview.net/forum?id=gcrDTxZTl0}
 }
-                        </textarea>
+                    </textarea>
                 </div>
             </div>
 
