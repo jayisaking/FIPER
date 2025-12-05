@@ -8,11 +8,6 @@ This repository contains the inference code for FIPER.
 pip install torch torchvision transformers einops pillow numpy
 ```
 
-## Model Zoo
-
-| Task | Coefficient Backbone | Scale | Checkpoint |
-| :---: | :---: | :---: | :---: |
-| Super Resolution | HAT | x4 | [Download Link](INSERT_LINK_HERE) |
 
 ## Usage
 ```python

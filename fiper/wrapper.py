@@ -75,8 +75,8 @@ class FIPER(nn.Module):
 
     def load_checkpoint(self, ckpt_path):
         checkpoint = torch.load(ckpt_path, map_location=self.device)
-        if 'wrappers' in checkpoint:
-            self.model.load_state_dict(checkpoint['wrappers'])
+        if 'model' in checkpoint:
+            self.model.load_state_dict(checkpoint['model'])
         else:
             self.model.load_state_dict(checkpoint)
             
