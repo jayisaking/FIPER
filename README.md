@@ -1,6 +1,6 @@
 # FIPER: Factorized Features for Robust Image Super-Resolution and Compression (NeurIPS 2025)
 
-[Yang-Che Sun](https://github.com/jayisaking)¹, Cheng Yu Yeo¹, [Ernie Chu](https://www.cs.jhu.edu/~schu23/)², [Jun-Cheng Chen](https://homepage.citi.sinica.edu.tw/pages/pullpull/index_en.html)³, [Yu-Lun Liu](https://yulunalexliu.github.io/)¹
+Yang-Che Sun¹, Cheng Yu Yeo¹, [Ernie Chu](https://www.cs.jhu.edu/~schu23/)², [Jun-Cheng Chen](https://homepage.citi.sinica.edu.tw/pages/pullpull/index_en.html)³, [Yu-Lun Liu](https://yulunalexliu.github.io/)¹
 
 ¹National Yang Ming Chiao Tung University, ²Johns Hopkins University, ³Academia Sinica
 
