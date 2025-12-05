@@ -20,7 +20,7 @@ pip install torch torchvision transformers einops pillow numpy
 ```
 
 
-## Usage
+## Usage (Super Resolution)
 ```python
 from PIL import Image
 from torchvision.transforms import functional as TF
